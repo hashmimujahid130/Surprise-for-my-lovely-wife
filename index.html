@@ -3,7 +3,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>To My Queen Ruhi 💖</title>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
+const emojis=['❤️','😘','😍','🥰','🫂','🫶🏼'];
+function createHeart(){const h=document.createElement('div');h.className='heart';h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];h.style.left=Math.random()*100+'vw';document.body.appendChild(h);setTimeout(()=>h.remove(),6000);}setInterval(createHeart,400);function fireWorks(){confetti({particleCount:200,spread:120,origin:{y:0.6}});}
+
+function showPopup(text){document.getElementById('popupText').innerHTML=text;document.getElementById('popup').style.display='flex';setTimeout(()=>{document.getElementById('popup').style.display='none';},4000);}
+
+function showCake(){document.getElementById('cakePopup').style.display='flex';fireWorks();} function cutCake(){document.getElementById('cakePopup').style.display='none';setTimeout(finalMessage,1500);}
+
+function finalMessage(){showPopup('💌 Ruhi, tum meri duniya ho. Tumhari muskaan meri taqat hai, tumhara pyaar meri zindagi. Happy Birthday meri Queen 👑💖');}
+
+setTimeout(showCake,12000); </script>
+
   <style>
     body{margin:0;font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#ff9a9e,#fad0c4);text-align:center;overflow-x:hidden;}
     h1{color:#fff;margin-top:20px;font-size:2.3em;animation:fadeIn 2s;}
@@ -18,22 +29,48 @@
     #quizBox{background:rgba(255,255,255,.9);padding:20px;border-radius:20px;margin-top:30px;display:none;animation:fadeIn 2s;}
     #popup,#cakePopup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);align-items:center;justify-content:center;z-index:999;}
     #popup div,#cakePopup div{background:#fff;padding:25px;border-radius:20px;max-width:340px;font-size:18px;color:#ff3366;animation:zoomIn 1s;}
-  </style>
-</head>
+  </style><!-- Extra animations & effects styles --><style>
+.heart{position:fixed;bottom:-20px;font-size:22px;animation:floatUp 6s linear infinite;}
+@keyframes floatUp{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100vh);opacity:0;}}
+#popup,#cakePopup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);align-items:center;justify-content:center;z-index:999;}
+#popup div,#cakePopup div{background:#fff;color:#ff3366;padding:25px;border-radius:20px;max-width:340px;animation:zoomIn 1s;}
+</style></head>
 <body><audio autoplay loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio><h1>To My Queen Ruhi 💖</h1><div class="container">
   <div class="gallery">
-    <img src="img1.jpg">
-    <img src="img2.jpg">
-    <img src="img3.jpg">
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+  <img src="4.jpg">
+  <img src="5.jpg">
+  <img src="6.jpg">
+  <img src="7.jpg">
+  <img src="8.jpg">
+  <img src="9.jpg">
+  <img src="10.jpg">
+  <img src="11.jpg">
+  <img src="12.jpg">
+  <img src="13.jpg">
+  <img src="14.jpg">
+  <img src="15.jpg">
+  <img src="16.jpg">
+  <img src="17.jpg">
+  <img src="18.jpg">
+  <img src="18.jpg">
+  <img src="19.jpg">
+  <img src="20.jpg">
+  <img src="21.jpg">
+  <img src="22.jpg">
+  <img src="23.jpg">
+  <img src="24.jpg">
   </div><button onclick="showQuiz()">💖 Surprise Quiz 💖</button>
 
   <div id="quizBox">
     <p style="font-size:18px;font-weight:600;color:#d63384;">Hamari pehli video call pe Ruhi kya kar rahi thi?</p>
-    <button onclick="checkAns('sharma')">Sharma rahi thi</button>
-    <button onclick="checkAns('gussa')">Gussa kar rahi thi</button>
-    <button onclick="checkAns('ro')">Ro rahi thi</button>
+    <button onclick="checkAns('sharma')">Me nervous thi </button>
+    <button onclick="checkAns('gussa')">Mujhe sharam a thi</button>
+    <button onclick="checkAns('ro')">Sharma rhi thi</button>
   </div>
 </div><div id="popup"><div id="popupText"></div></div><div id="cakePopup">
   <div>
@@ -42,7 +79,8 @@
     <p>Make a wish meri jaan 💖</p>
     <button onclick="cutCake()">Cut Cake 🎉</button>
   </div>
-</div><script>
+</div><div id="popup"><div id="popupText"></div></div>
+<div id="cakePopup"><div><h2>🎂 Happy Birthday Meri Queen 🎂</h2><img src="https://i.imgur.com/4M7IWwP.gif" width="200"><p>Make a wish meri jaan 💖</p><button onclick="cutCake()">Cut Cake 🎉</button></div></div><script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script><script>
 const emojis=['❤️','😘','😍','🥰','🫂','🫶🏼'];
 
 function createHeart(){
@@ -83,14 +121,5 @@ function finalMessage(){
 }
 
 setTimeout(showCake,10000);
-</script>
-<script>
-var password = "Ruhimujahidforever";
-var user = prompt("💖 Enter Surprise Password 💖");
-
-if (user !== password) {
-  alert("❌ Wrong Password! Surprise Locked 😜");
-  window.location.href = "https://google.com";
-}
 </script></body>
 </html>
