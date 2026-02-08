@@ -2,43 +2,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To My Queen Ruhi 💖</title>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
-const emojis=['❤️','😘','😍','🥰','🫂','🫶🏼'];
-function createHeart(){const h=document.createElement('div');h.className='heart';h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];h.style.left=Math.random()*100+'vw';document.body.appendChild(h);setTimeout(()=>h.remove(),6000);}setInterval(createHeart,400);function fireWorks(){confetti({particleCount:200,spread:120,origin:{y:0.6}});}
-
-function showPopup(text){document.getElementById('popupText').innerHTML=text;document.getElementById('popup').style.display='flex';setTimeout(()=>{document.getElementById('popup').style.display='none';},4000);}
-
-function showCake(){document.getElementById('cakePopup').style.display='flex';fireWorks();} function cutCake(){document.getElementById('cakePopup').style.display='none';setTimeout(finalMessage,1500);}
-
-function finalMessage(){showPopup('💌 Ruhi, tum meri duniya ho. Tumhari muskaan meri taqat hai, tumhara pyaar meri zindagi. Happy Birthday meri Queen 👑💖');}
-
-setTimeout(showCake,12000); </script>
-
+  <title>To My Queen Ruhi 👑</title>
   <style>
-    body{margin:0;font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#ff9a9e,#fad0c4);text-align:center;overflow-x:hidden;}
-    h1{color:#fff;margin-top:20px;font-size:2.3em;animation:fadeIn 2s;}
-    .container{max-width:900px;margin:auto;padding:20px;}
-    .gallery img{width:90%;max-width:300px;border-radius:20px;margin:10px;box-shadow:0 8px 20px rgba(0,0,0,.3);animation:zoomIn 2s;}
-    button{padding:12px 25px;font-size:18px;border-radius:30px;border:none;background:#ff4d6d;color:#fff;cursor:pointer;margin:15px;box-shadow:0 5px 15px rgba(0,0,0,.2);transition:.3s;}
-    button:hover{transform:scale(1.1);background:#ff1f4d;}
-    .heart{position:fixed;bottom:-20px;font-size:24px;animation:floatUp 6s linear infinite;}
-    @keyframes floatUp{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100vh);opacity:0;}}
-    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-    @keyframes zoomIn{from{transform:scale(.7);}to{transform:scale(1);}}
-    #quizBox{background:rgba(255,255,255,.9);padding:20px;border-radius:20px;margin-top:30px;display:none;animation:fadeIn 2s;}
-    #popup,#cakePopup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);align-items:center;justify-content:center;z-index:999;}
-    #popup div,#cakePopup div{background:#fff;padding:25px;border-radius:20px;max-width:340px;font-size:18px;color:#ff3366;animation:zoomIn 1s;}
-  </style><!-- Extra animations & effects styles --><style>
-.heart{position:fixed;bottom:-20px;font-size:22px;animation:floatUp 6s linear infinite;}
-@keyframes floatUp{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100vh);opacity:0;}}
-#popup,#cakePopup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);align-items:center;justify-content:center;z-index:999;}
-#popup div,#cakePopup div{background:#fff;color:#ff3366;padding:25px;border-radius:20px;max-width:340px;animation:zoomIn 1s;}
-</style></head>
-<body><audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio><h1>To My Queen Ruhi 💖</h1><div class="container">
-  <div class="gallery">
+    body{
+      margin:0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg,#ff758c,#ff7eb3);
+      color:white;
+      text-align:center;
+      overflow-x:hidden;
+    }
+    .screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;}
+    h1{font-size:2.2em;margin-bottom:10px;}
+    p{font-size:1.1em;max-width:600px;}
+    button{padding:12px 25px;font-size:16px;border:none;border-radius:25px;background:#fff;color:#ff4f8b;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.3);}    
+    input{padding:10px;border-radius:20px;border:none;font-size:16px;text-align:center;}
+    .hidden{display:none;}
+    img{max-width:90%;border-radius:15px;margin:10px;box-shadow:0 4px 15px rgba(0,0,0,.3);}    
+  </style>
+</head>
+<body><div id="lock" class="screen">
+  <h1>🔐 Private Surprise</h1>
+  <p>Enter the secret password</p>
+  <input type="password" id="pass" placeholder="Password" />
+  <br><br>
+  <button onclick="unlock()">Open My Heart ❤️</button>
+</div><div id="main" class="screen hidden">
+  <h1>To My Queen Ruhi 👑</h1>
+  <p>Hey Ruhi… I made something only for you ❤️</p>
+  <button onclick="showVideo()">▶ Play Our Story</button>
+</div><div id="video" class="screen hidden">
+  <h1>Our Love Story 🎬</h1>
+  <video controls style="max-width:90%;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.3);">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <br><br>
+  <button onclick="showLetter()">Read My Heart ❤️</button>
+</div><div id="letter" class="screen hidden">
+  <h1>My Love Letter 💌</h1>
+  <p style="background:rgba(255,255,255,.15);padding:15px;border-radius:15px;">
+  My Dear Ruhi ❤️<br><br>
+  Tum meri biwi ho, meri dost ho, meri duniya ho...<br>
+  Jab pehli baar tumhe sharmate hue dekha tha, main tumhara ho gaya...<br><br>
+  Jheel ke kinare wo hug... wo aansu... wo pal meri zindagi ka sabse emotional pal tha...<br><br>
+  Main wada karta hoon – zindagi bhar tumhari aankhon me aansu nahi aane dunga...<br><br>
+  Happy Birthday meri jaan 🎂❤️<br>
+  Forever Yours – Mujahid ♾️
+  </p>
+  <button onclick="showGallery()">See Our Moments 📸</button>
+</div><div id="gallery" class="screen hidden">
+  <h1>Our Memories 📸</h1>
   <img src="1.jpg">
   <img src="2.jpg">
   <img src="3.jpg">
@@ -63,63 +76,20 @@ setTimeout(showCake,12000); </script>
   <img src="21.jpg">
   <img src="22.jpg">
   <img src="23.jpg">
-  <img src="24.jpg">
-  </div><button onclick="showQuiz()">💖 Surprise Quiz 💖</button>
-
-  <div id="quizBox">
-    <p style="font-size:18px;font-weight:600;color:#d63384;">Hamari pehli video call pe Ruhi kya kar rahi thi?</p>
-    <button onclick="checkAns('sharma')">Me nervous thi </button>
-    <button onclick="checkAns('gussa')">Mujhe sharam a thi</button>
-    <button onclick="checkAns('ro')">Sharma rhi thi</button>
-  </div>
-</div><div id="popup"><div id="popupText"></div></div><div id="cakePopup">
-  <div>
-    <h2>🎂 Happy Birthday Meri Queen 🎂</h2>
-    <img src="https://i.imgur.com/4M7IWwP.gif" width="200"><br>
-    <p>Make a wish meri jaan 💖</p>
-    <button onclick="cutCake()">Cut Cake 🎉</button>
-  </div>
-</div><div id="popup"><div id="popupText"></div></div>
-<div id="cakePopup"><div><h2>🎂 Happy Birthday Meri Queen 🎂</h2><img src="https://i.imgur.com/4M7IWwP.gif" width="200"><p>Make a wish meri jaan 💖</p><button onclick="cutCake()">Cut Cake 🎉</button></div></div><script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script><script>
-const emojis=['❤️','😘','😍','🥰','🫂','🫶🏼'];
-
-function createHeart(){
-  const h=document.createElement('div');
-  h.className='heart';
-  h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
-  h.style.left=Math.random()*100+'vw';
-  h.style.fontSize=(20+Math.random()*25)+'px';
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
+  <img src="24.jpg"> 
+  <p>Har guzarta din, hume ek dusre ke aur kareeb la raha hai ❤️</p>
+</div><script>
+function unlock(){
+  if(document.getElementById('pass').value === "Ruhimujahidforever"){
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('main').classList.remove('hidden');
+  } else { alert('Wrong Password ❤️'); }
 }
-setInterval(createHeart,400);
+function showVideo(){ hideAll(); document.getElementById('video').classList.remove('hidden'); }
+function showLetter(){ hideAll(); document.getElementById('letter').classList.remove('hidden'); }
+function showGallery(){ hideAll(); document.getElementById('gallery').classList.remove('hidden'); }
+function showCountdown(){ hideAll(); document.getElementById('countdown').classList.remove('hidden'); }
+function hideAll(){ document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden')); }
 
-function showQuiz(){document.getElementById('quizBox').style.display='block';}
-
-function fireWorks(){confetti({particleCount:200,spread:100,origin:{y:0.6}});}  
-
-function checkAns(ans){
-  if(ans==='sharma'){
-    fireWorks();
-    showPopup('💖 Bilkul sahi! Tum meri zindagi ka sabse khoobsurat hissa ho Ruhi 💖');
-  }else{
-    showPopup('😜 Galat! Phir se socho meri jaan 😘');
-  }
-}
-
-function showPopup(text){
-  document.getElementById('popupText').innerHTML=text;
-  document.getElementById('popup').style.display='flex';
-  setTimeout(()=>{document.getElementById('popup').style.display='none';},4000);
-}
-
-function showCake(){document.getElementById('cakePopup').style.display='flex';fireWorks();}
-function cutCake(){document.getElementById('cakePopup').style.display='none';setTimeout(finalMessage,1500);}
-
-function finalMessage(){
-  showPopup('💌 Ruhi, tum meri duniya ho. Tumhari muskaan meri taqat hai, tumhara pyaar meri zindagi. Happy Birthday meri Queen 👑💖');
-}
-
-setTimeout(showCake,10000);
 </script></body>
 </html>
