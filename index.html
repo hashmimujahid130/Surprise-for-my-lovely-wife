@@ -2,147 +2,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To My Queen Ruhi 💙</title>  <style>
-    body{
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
-      min-height:100vh;
-      overflow-x:hidden;
-      text-align:center;
-      padding:20px;
-    }
-    h1{font-size:28px;color:#d63384;margin-top:10px;}
-    h2{font-size:22px;color:#b02a6b;}
-    .card{
-      background:rgba(255,255,255,0.92);
-      border-radius:22px;
-      padding:20px;
-      max-width:420px;
-      margin:20px auto;
-      box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    }
-    img{width:100%;border-radius:18px;margin-bottom:10px;}
+  <title>To My Queen Ruhi 💖</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body{margin:0;font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#ff9a9e,#fad0c4);text-align:center;overflow-x:hidden;}
+    h1{color:#fff;margin-top:20px;font-size:2.3em;animation:fadeIn 2s;}
+    .container{max-width:900px;margin:auto;padding:20px;}
+    .gallery img{width:90%;max-width:300px;border-radius:20px;margin:10px;box-shadow:0 8px 20px rgba(0,0,0,.3);animation:zoomIn 2s;}
+    button{padding:12px 25px;font-size:18px;border-radius:30px;border:none;background:#ff4d6d;color:#fff;cursor:pointer;margin:15px;box-shadow:0 5px 15px rgba(0,0,0,.2);transition:.3s;}
+    button:hover{transform:scale(1.1);background:#ff1f4d;}
+    .heart{position:fixed;bottom:-20px;font-size:24px;animation:floatUp 6s linear infinite;}
+    @keyframes floatUp{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100vh);opacity:0;}}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    @keyframes zoomIn{from{transform:scale(.7);}to{transform:scale(1);}}
+    #quizBox{background:rgba(255,255,255,.9);padding:20px;border-radius:20px;margin-top:30px;display:none;animation:fadeIn 2s;}
+    #popup,#cakePopup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);align-items:center;justify-content:center;z-index:999;}
+    #popup div,#cakePopup div{background:#fff;padding:25px;border-radius:20px;max-width:340px;font-size:18px;color:#ff3366;animation:zoomIn 1s;}
+  </style>
+</head>
+<body><audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio><h1>To My Queen Ruhi 💖</h1><div class="container">
+  <div class="gallery">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+  </div><button onclick="showQuiz()">💖 Surprise Quiz 💖</button>
 
-    /* ===== BUTTON ANIMATION ===== */
-    .btn-animate{
-      padding:12px 24px;
-      background:linear-gradient(45deg,#ff4b7d,#ff9a9e);
-      color:#fff;border:none;border-radius:25px;font-size:16px;cursor:pointer;
-      transition:all .3s ease;animation:pulse 1.5s infinite;margin:6px;
-    }
-    .btn-animate:hover{transform:scale(1.1);box-shadow:0 0 15px rgba(255,75,125,.8);}    
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,75,125,.7);}70%{box-shadow:0 0 0 12px rgba(255,75,125,0);}100%{box-shadow:0 0 0 0 rgba(255,75,125,0);}}
+  <div id="quizBox">
+    <p style="font-size:18px;font-weight:600;color:#d63384;">Hamari pehli video call pe Ruhi kya kar rahi thi?</p>
+    <button onclick="checkAns('sharma')">Sharma rahi thi</button>
+    <button onclick="checkAns('gussa')">Gussa kar rahi thi</button>
+    <button onclick="checkAns('ro')">Ro rahi thi</button>
+  </div>
+</div><div id="popup"><div id="popupText"></div></div><div id="cakePopup">
+  <div>
+    <h2>🎂 Happy Birthday Meri Queen 🎂</h2>
+    <img src="https://i.imgur.com/4M7IWwP.gif" width="200"><br>
+    <p>Make a wish meri jaan 💖</p>
+    <button onclick="cutCake()">Cut Cake 🎉</button>
+  </div>
+</div><script>
+const emojis=['❤️','😘','😍','🥰','🫂','🫶🏼'];
 
-    /* ===== FLOATING EMOJI ===== */
-    .float-emoji{position:fixed;bottom:-40px;font-size:28px;animation:floatUp 5s linear forwards;z-index:999;pointer-events:none;}
-    @keyframes floatUp{from{transform:translateY(0);opacity:1;}to{transform:translateY(-650px);opacity:0;}}
+function createHeart(){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(20+Math.random()*25)+'px';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+setInterval(createHeart,400);
 
-    /* ===== CONFETTI ===== */
-    .confetti{position:fixed;top:-10px;width:8px;height:12px;animation:confettiFall 3s linear forwards;z-index:1000;}
-    @keyframes confettiFall{to{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+function showQuiz(){document.getElementById('quizBox').style.display='block';}
 
-    /* ===== FIREWORKS ===== */
-    .firework{position:fixed;width:6px;height:6px;border-radius:50%;animation:firework 1.2s ease-out forwards;z-index:1000;}
-    @keyframes firework{0%{transform:scale(0);opacity:1;}100%{transform:scale(15);opacity:0;}}
+function fireWorks(){confetti({particleCount:200,spread:100,origin:{y:0.6}});}  
 
-    /* ===== QUIZ ===== */
-    #quiz-box{background:#fff0f5;padding:20px;border-radius:20px;margin-top:20px;}
-    #question{font-size:18px;font-weight:600;color:#d63384;}
-    #result{margin-top:10px;font-size:16px;font-weight:600;}
+function checkAns(ans){
+  if(ans==='sharma'){
+    fireWorks();
+    showPopup('💖 Bilkul sahi! Tum meri zindagi ka sabse khoobsurat hissa ho Ruhi 💖');
+  }else{
+    showPopup('😜 Galat! Phir se socho meri jaan 😘');
+  }
+}
 
-    /* ===== MESSAGE MODAL ===== */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:2000;}
-    .modal .box{background:#fff;border-radius:20px;padding:22px;max-width:360px;box-shadow:0 10px 30px rgba(0,0,0,.25);}
-  </style></head><body>  <!-- ===== BACKGROUND MUSIC ===== -->  <audio id="bgm" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>  <h1>To My Queen Ruhi 👑💙</h1>  <div class="card">
-    <img src="img1.jpg" alt="Love Photo">
-    <p>Jab pehli baar tumhe video call par sharmate hue dekha tha, tabhi main tumhara ho gaya tha 🥹💖</p>
-  </div>  <div class="card">
-    <img src="img2.jpg" alt="Love Photo">
-    <p>Tum sirf meri biwi hi nahi, meri best friend, meri duniya aur mera sab kuch ho ❤️</p>
-  </div>  <div class="card">
-    <img src="img3.jpg" alt="Love Photo">
-    <p>Jheel ke kinare wo hug… jab tum meri baahon me ro rahi thi — wo pal zindagi bhar mere dil me rahega 🤍</p>
-  </div><button class="btn-animate" onclick="openSequence()">Click for Surprise 💝</button>
+function showPopup(text){
+  document.getElementById('popupText').innerHTML=text;
+  document.getElementById('popup').style.display='flex';
+  setTimeout(()=>{document.getElementById('popup').style.display='none';},4000);
+}
 
-  <!-- ===== QUIZ ===== -->  <div id="quiz-box" class="card">
-    <h2>💞 Ruhi Special Quiz 💞</h2>
-    <p id="question">Hamari pehli video call pe Ruhi kya kar rahi thi?</p>
-    <button class="btn-animate" onclick="checkAnswer('sharma rahi thi')">Sharma rahi thi 😊</button>
-    <button class="btn-animate" onclick="checkAnswer('gussa kar rahi thi')">Gussa kar rahi thi 😅</button>
-    <h3 id="result"></h3>
-  </div>  <!-- ===== MESSAGE MODAL ===== -->  <div id="modal" class="modal">
-    <div class="box">
-      <h2 id="mTitle">Happy Birthday 🎂</h2>
-      <p id="mText"></p>
-      <button class="btn-animate" onclick="nextMsg()">Next 💖</button>
-    </div>
-  </div>  <script>
-    const emojis=['💖','😘','😍','🥰','🫂','🫶🏼'];
-    setInterval(()=>{
-      const e=document.createElement('div');
-      e.className='float-emoji';
-      e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
-      e.style.left=Math.random()*100+'vw';
-      document.body.appendChild(e);
-      setTimeout(()=>e.remove(),5000);
-    },500);
+function showCake(){document.getElementById('cakePopup').style.display='flex';fireWorks();}
+function cutCake(){document.getElementById('cakePopup').style.display='none';setTimeout(finalMessage,1500);}
 
-    function confettiBlast(){
-      for(let i=0;i<80;i++){
-        const c=document.createElement('div');
-        c.className='confetti';
-        c.style.left=Math.random()*100+'vw';
-        c.style.background=`hsl(${Math.random()*360},90%,60%)`;
-        document.body.appendChild(c);
-        setTimeout(()=>c.remove(),3000);
-      }
-    }
+function finalMessage(){
+  showPopup('💌 Ruhi, tum meri duniya ho. Tumhari muskaan meri taqat hai, tumhara pyaar meri zindagi. Happy Birthday meri Queen 👑💖');
+}
 
-    function fireworks(){
-      for(let i=0;i<8;i++){
-        const f=document.createElement('div');
-        f.className='firework';
-        f.style.left=(40+Math.random()*20)+'vw';
-        f.style.top=(30+Math.random()*20)+'vh';
-        f.style.background=`hsl(${Math.random()*360},90%,60%)`;
-        document.body.appendChild(f);
-        setTimeout(()=>f.remove(),1200);
-      }
-    }
+setTimeout(showCake,10000);
+</script>
+<script>
+var password = "Ruhimujahidforever";
+var user = prompt("💖 Enter Surprise Password 💖");
 
-    function checkAnswer(ans){
-      const r=document.getElementById('result');
-      if(ans==='sharma rahi thi'){
-        r.style.color='green';
-        r.innerHTML='💚 Bilkul sahi meri jaan! Tumhari sharmili muskaan ne mujhe tumse pagal kar diya 💚';
-        confettiBlast(); fireworks(); openSequence();
-      } else {
-        r.style.color='red'; r.innerHTML='❌ Areyy nahi 😅 ek baar aur socho meri jaan 💭';
-      }
-    }
-
-    // ===== MESSAGE SEQUENCE =====
-    const msgs=[
-      'Happy Birthday meri jaan Ruhi 🎂💙',
-      'Tum meri zindagi ka sabse khoobsurat tohfa ho 🥹',
-      'Tumhari hansi meri duniya roshan kar deti hai ✨',
-      'Chahe doori ho, dil hamesha paas hi rehta hai 🤍',
-      'Forever yours — Mujahid 💌'
-    ];
-    let mi=0;
-    function openSequence(){
-      mi=0; document.getElementById('modal').style.display='flex';
-      document.getElementById('mText').innerText=msgs[mi];
-    }
-    function nextMsg(){
-      mi++; if(mi<msgs.length){document.getElementById('mText').innerText=msgs[mi];}
-      else{document.getElementById('modal').style.display='none';}
-    }
-
-    // Mobile autoplay fix
-    document.body.addEventListener('click',()=>{document.getElementById('bgm').play();},{once:true});
-  </script></body>
+if (user !== password) {
+  alert("❌ Wrong Password! Surprise Locked 😜");
+  window.location.href = "https://google.com";
+}
+</script></body>
 </html>
