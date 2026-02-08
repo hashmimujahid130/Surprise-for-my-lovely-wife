@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Queen Ruhi 👑</title>
+  <style>
+    body{
+      margin:0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg,#ff758c,#ff7eb3);
+      color:white;
+      text-align:center;
+      overflow-x:hidden;
+    }
+    .screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;}
+    h1{font-size:2.2em;margin-bottom:10px;}
+    p{font-size:1.1em;max-width:600px;}
+    button{padding:12px 25px;font-size:16px;border:none;border-radius:25px;background:#fff;color:#ff4f8b;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.3);}    
+    input{padding:10px;border-radius:20px;border:none;font-size:16px;text-align:center;}
+    .hidden{display:none;}
+    img{max-width:90%;border-radius:15px;margin:10px;box-shadow:0 4px 15px rgba(0,0,0,.3);}    
+  </style>
+</head>
+<body><div id="lock" class="screen">
+  <h1>🔐 Private Surprise</h1>
+  <p>Enter the secret password</p>
+  <input type="password" id="pass" placeholder="Password" />
+  <br><br>
+  <button onclick="unlock()">Open My Heart ❤️</button>
+</div><div id="main" class="screen hidden">
+  <h1>To My Queen Ruhi 👑</h1>
+  <p>Hey Ruhi… I made something only for you ❤️</p>
+  <button onclick="showVideo()">▶ Play Our Story</button>
+</div><div id="video" class="screen hidden">
+  <h1>Our Love Story 🎬</h1>
+  <video controls style="max-width:90%;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.3);">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <br><br>
+  <button onclick="showLetter()">Read My Heart ❤️</button>
+</div><div id="letter" class="screen hidden">
+  <h1>My Love Letter 💌</h1>
+  <p style="background:rgba(255,255,255,.15);padding:15px;border-radius:15px;">
+  My Dear Ruhi ❤️<br><br>
+  Tum meri biwi ho, meri dost ho, meri duniya ho...<br>
+  Jab pehli baar tumhe sharmate hue dekha tha, main tumhara ho gaya...<br><br>
+  Jheel ke kinare wo hug... wo aansu... wo pal meri zindagi ka sabse emotional pal tha...<br><br>
+  Main wada karta hoon – zindagi bhar tumhari aankhon me aansu nahi aane dunga...<br><br>
+  Happy Birthday meri jaan 🎂❤️<br>
+  Forever Yours – Mujahid ♾️
+  </p>
+  <button onclick="showGallery()">See Our Moments 📸</button>
+</div><div id="gallery" class="screen hidden">
+  <h1>Our Memories 📸</h1>
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+  <button onclick="showCountdown()">Our Forever Timer ⏳</button>
+</div><div id="countdown" class="screen hidden">
+  <h1>Days Left To Our Forever ♾️</h1>
+  <h2 id="timer"></h2>
+  <p>Har guzarta din, hume ek dusre ke aur kareeb la raha hai ❤️</p>
+</div><script>
+function unlock(){
+  if(document.getElementById('pass').value === "Ruhimujahidforever"){
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('main').classList.remove('hidden');
+  } else { alert('Wrong Password ❤️'); }
+}
+function showVideo(){ hideAll(); document.getElementById('video').classList.remove('hidden'); }
+function showLetter(){ hideAll(); document.getElementById('letter').classList.remove('hidden'); }
+function showGallery(){ hideAll(); document.getElementById('gallery').classList.remove('hidden'); }
+function showCountdown(){ hideAll(); document.getElementById('countdown').classList.remove('hidden'); }
+function hideAll(){ document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden')); }
+
+// Countdown (example: 31 Dec 2026)
+var target = new Date("Dec 31, 2026 00:00:00").getTime();
+setInterval(function(){
+  var now = new Date().getTime();
+  var d = target - now;
+  var days = Math.floor(d/(1000*60*60*24));
+  document.getElementById('timer').innerHTML = days + " Days";
+},1000);
+</script></body>
+</html>
