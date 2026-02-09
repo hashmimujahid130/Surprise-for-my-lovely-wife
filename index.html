@@ -178,11 +178,11 @@
 </div>
 
 <script>
-let heartSpeed = 300;
+let heartSpeed = 300;function unlock(){
+  const secret = atob("MTBmZWIyMDAx"); // 10feb2001
+  const userPass = document.getElementById('pass').value.trim();
 
-function unlock(){
-  const secret = atob("MTBmZWIyMDAx");
-  if(document.getElementById('pass').value === secret){
+  if(userPass === secret){
     hideAll();
     document.getElementById('main').classList.remove('hidden');
     startCountdown();
@@ -219,4 +219,5 @@ function createHeart(){
   s.style.top = "0px";
   document.body.appendChild(s);
 
-  setTimeout(()=>{h.remove();s
+  setTimeout(()=>{h.remove();s.remove();
+                  },5000);
