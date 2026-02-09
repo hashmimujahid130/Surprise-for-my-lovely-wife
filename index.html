@@ -116,7 +116,8 @@
 <div id="lock" class="screen">
   <h1>🔐 Only for my kittu bubu</h1>
   <p>Bubu yaha password enter kro</p>
-  <input type="password" id="pass" placeholder="Password" />
+  <input type="password" id="pass" placeholder="Password"
+       onkeydown="if(event.key==='Enter'){ unlock(); }" />
   <br><br>
   <button onclick="unlock()">Bubu yaha click kro ❤️</button>
 </div>
