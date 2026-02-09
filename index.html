@@ -184,11 +184,6 @@ function hideAll(){
 const pops = ["🧸","🍫","🍬","🍭"];
 
 function createPop(){
-setInterval(()=>{
-  if(!document.getElementById("lock").classList.contains("hidden")){
-    createPop();
-  }
-},800);
   const p = document.createElement("div");
   p.className = "pop-item";
   p.innerHTML = pops[Math.floor(Math.random()*pops.length)];
@@ -196,11 +191,18 @@ setInterval(()=>{
   p.style.fontSize = (45 + Math.random()*35) + "px";
   p.style.animationDuration = (4 + Math.random()*3) + "s";
   document.body.appendChild(p);
-
   setTimeout(()=>p.remove(),7000);
 }
+
+setInterval(()=>{
+  if(!document.getElementById("lock").classList.contains("hidden")){
+    createPop();
+  }
+},800);
+
+}
 /* ❤️ HEART + ✨ SPARKLE */
-const hearts=["❤️","💜","💙","💖","🧸","🍫","💕","😘","🥰","😍","👩‍❤️‍💋‍👩","🎉","🎊","💞"];  
+const hearts=["❤️","💜","💙","💖","🧸","🍫","🎂","💕","😘","🥰","😍","👩‍❤️‍💋‍👩","🎉","🎊","💞"];  
 function createHeart(){
   const h=document.createElement("div");
   h.className="heart";
