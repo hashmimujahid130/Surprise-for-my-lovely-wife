@@ -61,6 +61,11 @@
 </head>
 <body>
 
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
 <!-- LOCK SCREEN -->
 <div id="lock" class="screen">
   <h1>🔐 Only for my kittu bubu</h1>
@@ -79,6 +84,7 @@
 
 <!-- VIDEO SCREEN -->
 <div id="video" class="screen hidden">
+  <button onclick="showMain()">⬅ Back</button>
   <h1>Our Love Story 🎬</h1>
   <p>Bubu pura dekhna 😁❤️</p>
   <video controls>
@@ -90,6 +96,7 @@
 
 <!-- LETTER SCREEN -->
 <div id="letter" class="screen hidden">
+  <button onclick="showVideo()">⬅ Back</button>
   <h1>My Prem Kotha 💌</h1>
   <p style="background:rgba(255,255,255,.15);padding:15px;border-radius:15px;">
     Meri pyari buburani ❤️<br><br>
@@ -106,6 +113,7 @@
 
 <!-- GALLERY SCREEN -->
 <div id="gallery" class="screen hidden">
+  <button onclick="showLetter()">⬅ Back</button>
   <h1>Our Memories 📸</h1>
   <img src="1.jpg">
   <img src="2.jpg">
@@ -149,12 +157,14 @@ function unlock(){
   }
 }
 
+function showMain(){ hideAll(); document.getElementById('main').classList.remove('hidden'); }
 function showVideo(){ hideAll(); document.getElementById('video').classList.remove('hidden'); }
 function showLetter(){ hideAll(); document.getElementById('letter').classList.remove('hidden'); }
 function showGallery(){ hideAll(); document.getElementById('gallery').classList.remove('hidden'); }
 
 function hideAll(){
   document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden'));
+  document.getElementById('bgMusic').play().catch(()=>{});
 }
 </script>
 
