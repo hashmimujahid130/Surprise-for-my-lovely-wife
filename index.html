@@ -218,6 +218,13 @@ function createHeart(){
   s.style.left = h.style.left;
   s.style.top = "0px";
   document.body.appendChild(s);
+setTimeout(()=>{
+  h.remove();
+  s.remove();
+},5000);
+setInterval(startCountdown,1000);
+</script>
 
-  setTimeout(()=>{h.remove();s.remove();
-                  },5000);
+</body>
+</html>
+  
