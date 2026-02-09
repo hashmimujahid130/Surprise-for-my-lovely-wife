@@ -1,123 +1,95 @@
 <!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ruhi ❤️ Mujahid</title>
-<style>
-body{margin:0;font-family:'Segoe UI',sans-serif;background:#000;color:#fff;text-align:center;overflow:hidden}
-.page{display:none;height:100vh;width:100vw;align-items:center;justify-content:center;flex-direction:column}
-input,button{padding:12px 20px;border-radius:30px;border:none;font-size:18px;margin:10px}
-button{background:#ff3366;color:#fff;cursor:pointer}
-button:hover{transform:scale(1.05)}
-video{max-width:100%;max-height:100%}
-.heart{position:fixed;bottom:-20px;font-size:22px;animation:floatUp 6s linear infinite}
-@keyframes floatUp{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-100vh);opacity:0}}
-#popup{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:10}
-#popup div{background:#fff;color:#ff3366;padding:25px;border-radius:20px;font-size:18px}
-.gallery img{width:200px;border-radius:15px;margin:8px;box-shadow:0 8px 20px rgba(0,0,0,.5)}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Ruhi bubu 👑</title>
+  <style>
+    body{
+      margin:0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg,#ff758c,#ff7eb3);
+      color:white;
+      text-align:center;
+      overflow-x:hidden;
+    }
+    .screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;}
+    h1{font-size:2.2em;margin-bottom:10px;}
+    p{font-size:1.1em;max-width:600px;}
+    button{padding:12px 25px;font-size:16px;border:none;border-radius:25px;background:#fff;color:#ff4f8b;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.3);}    
+    input{padding:10px;border-radius:20px;border:none;font-size:16px;text-align:center;}
+    .hidden{display:none;}
+    img{max-width:90%;border-radius:15px;margin:10px;box-shadow:0 4px 15px rgba(0,0,0,.3);}    
+  </style>
 </head>
-<body><audio id="bgm" src="music.mp3" loop></audio>
-
-<!-- PAGE 1 PASSWORD --><div id="page1" class="page" style="display:flex">
-<h1>🔒 Enter Secret Password</h1>
-<input type="password" id="pass" placeholder="Password">
-<button onclick="checkPass()">Unlock ❤️</button>
-</div><!-- PAGE 2 INTRO VIDEO --><div id="page2" class="page">
-<video id="intro" src="intro.mp4"></video>
-<button onclick="goMain()">Continue 💖</button>
-</div><!-- PAGE 3 MAIN --><div id="page3" class="page">
-<h1>Happy Birthday Meri Queen Ruhi 💖</h1>
-<div class="gallery">
-<img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
-</div>
-<button onclick="showQuiz()">💖 Start Love Quiz 💖</button>
-<div id="quiz" style="display:none">
-<p>Hamari pehli video call pe Ruhi kya kar rahi thi?</p>
-<button onclick="checkAns('right')">Sharma rahi thi</button>
-<button onclick="checkAns('wrong')">Gussa</button>
-<button onclick="checkAns('wrong')">Ro rahi thi</button>
-</div>
-</div><div id="popup"><div id="popupText"></div></div><script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script><script>
-const PASSWORD="Ruhimujahidforever";
-const emojis=['❤️','😘','😍','🥰','🫂','🫶🏼'];
-
-function checkPass(){
- if(document.getElementById('pass').value===PASSWORD){
-  document.getElementById('page1').style.display='none';
-  document.getElementById('page2').style.display='flex';
-  let v=document.getElementById('intro');
-  v.play();
-  document.getElementById('bgm').play();
- }
-}
-
-function goMain(){
- document.getElementById('page2').style.display='none';
- document.getElementById('page3').style.display='flex';
-}
-
-function createHeart(){
- const h=document.createElement('div');
- h.className='heart';
- h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
- h.style.left=Math.random()*100+'vw';
- document.body.appendChild(h);
- setTimeout(()=>h.remove(),6000);
-}
-setInterval(createHeart,400);
-
-function showQuiz(){document.getElementById('quiz').style.display='block'}
-
-function fire(){confetti({particleCount:200,spread:120,origin:{y:0.6}})}
-
-function showPopup(t){
- popupText.innerHTML=t;
- popup.style.display='flex';
- setTimeout(()=>popup.style.display='none',4000);
-}
-
-function checkAns(a){
- if(a==='right'){fire();showPopup('💖 Bilkul sahi meri jaan! Tum meri duniya ho Ruhi 💖')}
- else{showPopup('😜 Galat! Dobara socho jaan 😘')}
-}
-</script><!-- Cake Cutting Animation --><div id="cakeBox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);align-items:center;justify-content:center;z-index:1000;">
-  <div style="background:#fff;padding:25px;border-radius:20px;max-width:350px;animation:zoomIn 1s;">
-    <h2>🎂 Happy Birthday Meri Queen 🎂</h2>
-    <img src="https://i.imgur.com/4M7IWwP.gif" width="200"><br>
-    <p>Make a wish meri jaan 💖</p>
-    <button onclick="cutCake()">Cut Cake 🎉</button>
-  </div>
+<body><div id="lock" class="screen">
+  <h1>🔐 Only for my kittu bubu</h1>
+  <p>Bubu yaha password enter kro</p>
+  <input type="password" id="pass" placeholder="Password" />
+  <br><br>
+  <button onclick="unlock()">Bubu yaha click kro ❤️</button>
+</div><div id="main" class="screen hidden">
+  <h1>To My Queen Ruhi 👑</h1>
+  <p>Hey My lady! maine aapke liye kuch bnaya hai hope you like it…  ❤️</p>
+  <button onclick="showVideo()">▶ Play Our Story</button>
+</div><div id="video" class="screen hidden">
+  <h1>Our Love Story bubu pura dekhna😁😁 🎬</h1>
+  <video controls style="max-width:90%;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.3);">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <br><br>
+  <button onclick="showLetter()">Bubu bubu read  ❤️</button>
+</div><div id="letter" class="screen hidden">
+  <h1>My prem kotha 💌</h1>
+  <p style="background:rgba(255,255,255,.15);padding:15px;border-radius:15px;">
+  Meri pyari buburani ❤️<br><br>
+  Happy birthday dear lovely wife 😘 😘 🥳 🥳 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈🥳 🥳 ...<br>
+  I love you meri jaan Allah tumhari umar lambi kre😘
+  Aaj ka din bhot khas hai meri chuchu puchu ka janadin hai hurrreeee dhum machale dhum machale 🎉 🥳 🥳 🥳 🎉 🥳 🎉 🥳 🥳 🥳 🎉 🥳 🥳 🥳...<br><br>
+  🎉 🥳 🎉 🎉 🥳i love you soooooo much meri jaan 😘 ❤️ 😘 😘 hmesha khush raho Allah hum dono ko jaldi se mila de Allah tumhara har chiz khushiyon se bhar de...<br><br>
+  Allah tumhari har dua qubool kre❤️❤️❤️❤️...<br><br>
+  Happy Birthday meri jaan 🎂❤️<br>
+  Forever Yours – Mujahid ♾️
+  </p>
+  <button onclick="showGallery()">See Our Moment 📸</button>
+</div><div id="gallery" class="screen hidden">
+  <h1>Our Memories 📸</h1>
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+  <img src="4.jpg">
+  <img src="5.jpg">
+  <img src="6.jpg">
+  <img src="7.jpg">
+  <img src="8.jpg">
+  <img src="9.jpg">
+  <img src="10.jpg">
+  <img src="11.jpg">
+  <img src="12.jpg">
+  <img src="13.jpg">
+  <img src="14.jpg">
+  <img src="15.jpg">
+  <img src="16.jpg">
+  <img src="17.jpg">
+  <img src="18.jpg">
+  <img src="19.jpg">
+  <img src="20.jpg">
+  <img src="21.jpg">
+  <img src="22.jpg">
+  <img src="23.jpg">
+  <img src="24.jpg"> 
+  <p>Har guzarta din, hume ek dusre ke aur kareeb la raha hai inshallah jld hi hum hamesha ke liye ek ho jynge❤️</p>
 </div><script>
-let unlockCount=0;
 function unlock(){
-  const btn=document.getElementById('unlockBtn');
-  const msg=document.getElementById('funnyMsg');
-  const pass=document.getElementById('pass').value;
-  if(pass!=="Ruhimujahidforever"){alert('Wrong Password ❤️');return;}
-  unlockCount++;
-  const lines=[
-    '😜 Itni jaldi kya hai Madam ji?',
-    '😘 Aree aree thoda patience rakho!',
-    '🥰 Bas last click, phir surprise!'
-  ];
-  if(unlockCount<3){
-    msg.innerHTML=lines[unlockCount-1];
-    btn.style.position='absolute';
-    btn.style.left=Math.random()*70+'%';
-    btn.style.top=Math.random()*70+'%';
-  }else{
+  if(document.getElementById('pass').value === "10feb2001"){
     document.getElementById('lock').classList.add('hidden');
-    document.getElementById('video').classList.remove('hidden');
-    setTimeout(()=>{document.getElementById('cakeBox').style.display='flex';},8000);
-  }
+    document.getElementById('main').classList.remove('hidden');
+  } else { alert('Bubu aapne glt password dala hai ❤️'); }
 }
+function showVideo(){ hideAll(); document.getElementById('video').classList.remove('hidden'); }
+function showLetter(){ hideAll(); document.getElementById('letter').classList.remove('hidden'); }
+function showGallery(){ hideAll(); document.getElementById('gallery').classList.remove('hidden'); }
+function showCountdown(){ hideAll(); document.getElementById('countdown').classList.remove('hidden'); }
+function hideAll(){ document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden')); }
 
-function cutCake(){
-  document.getElementById('cakeBox').style.display='none';
-  fireWorks();
-}
 </script></body>
 </html>
