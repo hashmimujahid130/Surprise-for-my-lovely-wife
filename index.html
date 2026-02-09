@@ -62,6 +62,22 @@ img,video{
 @keyframes fall{
   to{transform:translateY(110vh) rotate(360deg);opacity:0;}
 }
+  /* 🧸🍫 POP ITEMS */
+.pop-item{
+  position:fixed;
+  bottom:-50px;
+  animation:popUp linear forwards;
+  z-index:1;
+  pointer-events:none;
+  opacity:0.9;
+}
+
+@keyframes popUp{
+  to{
+    transform:translateY(-110vh) scale(1.2);
+    opacity:0;
+  }
+}
 
 /* ✨ SPARKLE */
 .sparkle{
@@ -165,9 +181,27 @@ function hideAll(){
   document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden'));
   document.getElementById('bgMusic').play().catch(()=>{});
 }
+const pops = ["🧸","🍫","🍬","🍭"];
+
+function createPop(){
+  const p = document.createElement("div");
+  p.className = "pop-item";
+  p.innerHTML = pops[Math.floor(Math.random()*pops.length)];
+  p.style.left = Math.random()*100 + "vw";
+  p.style.fontSize = (30 + Math.random()*20) + "px";
+  p.style.animationDuration = (4 + Math.random()*3) + "s";
+  document.body.appendChild(p);
+
+  setTimeout(()=>p.remove(),7000);
+}
+setInterval(()=>{
+  if(!document.getElementById("lock").classList.contains("hidden")){
+    createPop();
+  }
+},800);
 
 /* ❤️ HEART + ✨ SPARKLE */
-const hearts=["❤️","💜","💙","💖","💕","💞"];
+const hearts=["❤️","💜","💙","💖","🧸","🍫","💕","💞"];
 function createHeart(){
   const h=document.createElement("div");
   h.className="heart";
