@@ -1,109 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To My Ruhi bubu 👑</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>To My Ruhi bubu 👑</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(135deg,#cfe9ff,#e6f4ff);
-      color:#6a1bb1;
-      text-align:center;
-      overflow-x:hidden;
-    }
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI', Tahoma, sans-serif;
+  background:linear-gradient(135deg,#cfe9ff,#e6f4ff);
+  color:#6a1bb1;
+  text-align:center;
+  overflow-x:hidden;
+}
+.screen{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+h1{font-size:2.2em;margin-bottom:10px;}
+p{font-size:1.1em;max-width:600px;}
+button{
+  padding:12px 25px;
+  font-size:16px;
+  border:none;
+  border-radius:25px;
+  background:#fff;
+  color:#6a1bb1;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,.25);
+  margin:8px;
+}
+input{
+  padding:10px;
+  border-radius:20px;
+  border:none;
+  font-size:16px;
+  text-align:center;
+}
+.hidden{display:none;}
+img,video{
+  max-width:90%;
+  border-radius:15px;
+  margin:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,.3);
+}
 
-    .screen{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-    }
+/* ❤️ HEART RAIN */
+.heart{
+  position:fixed;
+  top:-10px;
+  animation:fall linear forwards;
+  z-index:9999;
+  pointer-events:none;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
 
-    h1{font-size:2.2em;margin-bottom:10px;}
-    p{font-size:1.1em;max-width:600px;}
-
-    button{
-      padding:12px 25px;
-      font-size:16px;
-      border:none;
-      border-radius:25px;
-      background:#ffffff;
-      color:#6a1bb1;
-      font-weight:600;
-      cursor:pointer;
-      box-shadow:0 5px 15px rgba(0,0,0,.25);
-      margin:8px;
-    }
-
-    input{
-      padding:10px;
-      border-radius:20px;
-      border:none;
-      font-size:16px;
-      text-align:center;
-    }
-
-    .hidden{display:none;}
-
-    img{
-      max-width:90%;
-      border-radius:15px;
-      margin:10px;
-      box-shadow:0 4px 15px rgba(0,0,0,.3);
-    }
-
-    video{
-      max-width:90%;
-      border-radius:15px;
-      box-shadow:0 4px 15px rgba(0,0,0,.3);
-    }
-
-    /* ❤️ HEART RAIN */
-    .heart{
-      position:fixed;
-      top:-10px;
-      animation:fall linear forwards;
-      z-index:9999;
-      pointer-events:none;
-    }
-
-    @keyframes fall{
-      to{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:0;
-      }
-    }
-
-    /* ✨ SPARKLE */
-    .sparkle{
-      position:fixed;
-      width:6px;
-      height:6px;
-      background:white;
-      border-radius:50%;
-      opacity:0.8;
-      animation:spark 1s linear forwards;
-      z-index:9998;
-      pointer-events:none;
-    }
-
-    @keyframes spark{
-      to{
-        transform:translateY(60px) scale(0);
-        opacity:0;
-      }
-    }
-
-    @media (max-width:600px){
-      h1{font-size:1.8em;}
-      p{font-size:1em;}
-    }
-  </style>
+/* ✨ SPARKLE */
+.sparkle{
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:spark 1s linear forwards;
+  z-index:9998;
+  pointer-events:none;
+}
+@keyframes spark{
+  to{transform:translateY(60px) scale(0);opacity:0;}
+}
+</style>
 </head>
 
 <body>
@@ -117,7 +92,7 @@
   <h1>🔐 Only for my kittu bubu</h1>
   <p>Bubu yaha password enter kro</p>
   <input type="password" id="pass" placeholder="Password"
-       onkeydown="if(event.key==='Enter'){ unlock(); }" />
+    onkeydown="if(event.key==='Enter'){unlock();}">
   <br><br>
   <button onclick="unlock()">Bubu yaha click kro ❤️</button>
 </div>
@@ -126,11 +101,6 @@
 <div id="main" class="screen hidden">
   <h1>To My Queen Ruhi 👑</h1>
   <p>Hey my lady! Maine aapke liye kuch bnaya hai… ❤️</p>
-
-  <h2 id="countdown" style="margin:15px 0;font-size:1.4em;">
-    Surprise loading... ⏳
-  </h2>
-
   <button onclick="showVideo()">▶ Play Our Story</button>
 </div>
 
@@ -150,7 +120,6 @@
 <div id="letter" class="screen hidden">
   <button onclick="showVideo()">⬅ Back</button>
   <h1>My Prem Kotha 💌</h1>
-
   <p style="background:rgba(255,255,255,.6);padding:15px;border-radius:15px;">
     Meri pyari buburani ❤️<br><br>
     Happy Birthday meri lovely wife 😘🥳🎂<br><br>
@@ -161,7 +130,6 @@
     Happy Birthday once again meri jaan 🎂❤️<br><br>
     Forever Yours – Mujahid ♾️
   </p>
-
   <button onclick="showGallery()">See Our Moments 📸</button>
 </div>
 
@@ -178,23 +146,20 @@
 </div>
 
 <script>
-let heartSpeed = 300;function unlock(){
-  const secret = atob("10feb2001"); // 10feb2001
-  const userPass = document.getElementById('pass').value.trim();
-
-  if(userPass === secret){
+function unlock(){
+  const secret = atob("MTBmZWIyMDAx"); // 10feb2001
+  if(document.getElementById('pass').value === secret){
     hideAll();
     document.getElementById('main').classList.remove('hidden');
-    startCountdown();
-  } else {
-    alert('Bubu aapne galat password dala hai ❤️');
+  }else{
+    alert("Bubu aapne galat password dala hai ❤️");
   }
 }
 
-function showMain(){ hideAll(); document.getElementById('main').classList.remove('hidden'); }
-function showVideo(){ hideAll(); document.getElementById('video').classList.remove('hidden'); }
-function showLetter(){ hideAll(); document.getElementById('letter').classList.remove('hidden'); }
-function showGallery(){ hideAll(); document.getElementById('gallery').classList.remove('hidden'); }
+function showMain(){hideAll();document.getElementById('main').classList.remove('hidden');}
+function showVideo(){hideAll();document.getElementById('video').classList.remove('hidden');}
+function showLetter(){hideAll();document.getElementById('letter').classList.remove('hidden');}
+function showGallery(){hideAll();document.getElementById('gallery').classList.remove('hidden');}
 
 function hideAll(){
   document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden'));
@@ -202,29 +167,26 @@ function hideAll(){
 }
 
 /* ❤️ HEART + ✨ SPARKLE */
-const hearts = ["❤️","💜","💙","💖","💕","💞"];
-
+const hearts=["❤️","💜","💙","💖","💕","💞"];
 function createHeart(){
-  const h = document.createElement("div");
+  const h=document.createElement("div");
   h.className="heart";
-  h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
-  h.style.left = Math.random()*100+"vw";
-  h.style.fontSize = (16+Math.random()*24)+"px";
-  h.style.animationDuration = (2+Math.random()*3)+"s";
+  h.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(16+Math.random()*24)+"px";
+  h.style.animationDuration=(2+Math.random()*3)+"s";
   document.body.appendChild(h);
 
-  const s = document.createElement("div");
+  const s=document.createElement("div");
   s.className="sparkle";
-  s.style.left = h.style.left;
-  s.style.top = "0px";
+  s.style.left=h.style.left;
+  s.style.top="0px";
   document.body.appendChild(s);
-setTimeout(()=>{
-  h.remove();
-  s.remove();
-},5000);
-setInterval(startCountdown,1000);
+
+  setTimeout(()=>{h.remove();s.remove();},5000);
+}
+setInterval(createHeart,300);
 </script>
 
 </body>
 </html>
-  
