@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,46 +13,99 @@
       text-align:center;
       overflow-x:hidden;
     }
-    .screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;}
+    .screen{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
     h1{font-size:2.2em;margin-bottom:10px;}
     p{font-size:1.1em;max-width:600px;}
-    button{padding:12px 25px;font-size:16px;border:none;border-radius:25px;background:#fff;color:#ff4f8b;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.3);}    
-    input{padding:10px;border-radius:20px;border:none;font-size:16px;text-align:center;}
+    button{
+      padding:12px 25px;
+      font-size:16px;
+      border:none;
+      border-radius:25px;
+      background:#fff;
+      color:#ff4f8b;
+      cursor:pointer;
+      box-shadow:0 5px 15px rgba(0,0,0,.3);
+      margin:8px;
+    }
+    input{
+      padding:10px;
+      border-radius:20px;
+      border:none;
+      font-size:16px;
+      text-align:center;
+    }
     .hidden{display:none;}
-    img{max-width:90%;border-radius:15px;margin:10px;box-shadow:0 4px 15px rgba(0,0,0,.3);}    
+    img{
+      max-width:90%;
+      border-radius:15px;
+      margin:10px;
+      box-shadow:0 4px 15px rgba(0,0,0,.3);
+    }
+    video{
+      max-width:90%;
+      border-radius:15px;
+      box-shadow:0 4px 15px rgba(0,0,0,.3);
+    }
+    @media (max-width:600px){
+      h1{font-size:1.8em;}
+      p{font-size:1em;}
+    }
   </style>
 </head>
-<body><div id="lock" class="screen">
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock" class="screen">
   <h1>🔐 Only for my kittu bubu</h1>
   <p>Bubu yaha password enter kro</p>
   <input type="password" id="pass" placeholder="Password" />
   <br><br>
   <button onclick="unlock()">Bubu yaha click kro ❤️</button>
-</div><div id="main" class="screen hidden">
+</div>
+
+<!-- MAIN SCREEN -->
+<div id="main" class="screen hidden">
   <h1>To My Queen Ruhi 👑</h1>
-  <p>Hey My lady! maine aapke liye kuch bnaya hai hope you like it…  ❤️</p>
+  <p>Hey my lady! Maine aapke liye kuch bnaya hai… hope aapko pasand aaye ❤️</p>
   <button onclick="showVideo()">▶ Play Our Story</button>
-</div><div id="video" class="screen hidden">
-  <h1>Our Love Story bubu pura dekhna😁😁 🎬</h1>
-  <video controls style="max-width:90%;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.3);">
+</div>
+
+<!-- VIDEO SCREEN -->
+<div id="video" class="screen hidden">
+  <h1>Our Love Story 🎬</h1>
+  <p>Bubu pura dekhna 😁❤️</p>
+  <video controls>
     <source src="video.mp4" type="video/mp4">
   </video>
   <br><br>
-  <button onclick="showLetter()">Bubu bubu read  ❤️</button>
-</div><div id="letter" class="screen hidden">
-  <h1>My prem kotha 💌</h1>
+  <button onclick="showLetter()">Read My Heart 💌</button>
+</div>
+
+<!-- LETTER SCREEN -->
+<div id="letter" class="screen hidden">
+  <h1>My Prem Kotha 💌</h1>
   <p style="background:rgba(255,255,255,.15);padding:15px;border-radius:15px;">
-  Meri pyari buburani ❤️<br><br>
-  Happy birthday dear lovely wife 😘 😘 🥳 🥳 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈🥳 🥳 ...<br>
-  I love you meri jaan Allah tumhari umar lambi kre😘
-  Aaj ka din bhot khas hai meri chuchu puchu ka janadin hai hurrreeee dhum machale dhum machale 🎉 🥳 🥳 🥳 🎉 🥳 🎉 🥳 🥳 🥳 🎉 🥳 🥳 🥳...<br><br>
-  🎉 🥳 🎉 🎉 🥳i love you soooooo much meri jaan 😘 ❤️ 😘 😘 hmesha khush raho Allah hum dono ko jaldi se mila de Allah tumhara har chiz khushiyon se bhar de...<br><br>
-  Allah tumhari har dua qubool kre❤️❤️❤️❤️...<br><br>
-  Happy Birthday meri jaan 🎂❤️<br>
-  Forever Yours – Mujahid ♾️
+    Meri pyari buburani ❤️<br><br>
+    Happy Birthday meri lovely wife 😘🥳🎂<br><br>
+    I love you meri jaan. Allah tumhari umar lambi kare aur tumhe hamesha khush rakhe ❤️<br><br>
+    Aaj ka din bahut khaas hai kyunki meri chuchu puchu ka janamdin hai 🥳🎉<br><br>
+    Main dua karta hoon Allah hum dono ko jaldi mila de aur tumhari har dua qubool kare ❤️<br><br>
+    Tum meri dua ho, meri aadat ho, meri future ho ❤️<br><br>
+    Happy Birthday once again meri jaan 🎂❤️<br><br>
+    Forever Yours – Mujahid ♾️
   </p>
-  <button onclick="showGallery()">See Our Moment 📸</button>
-</div><div id="gallery" class="screen hidden">
+  <button onclick="showGallery()">See Our Moments 📸</button>
+</div>
+
+<!-- GALLERY SCREEN -->
+<div id="gallery" class="screen hidden">
   <h1>Our Memories 📸</h1>
   <img src="1.jpg">
   <img src="2.jpg">
@@ -76,20 +130,33 @@
   <img src="21.jpg">
   <img src="22.jpg">
   <img src="23.jpg">
-  <img src="24.jpg"> 
-  <p>Har guzarta din, hume ek dusre ke aur kareeb la raha hai inshallah jld hi hum hamesha ke liye ek ho jynge❤️</p>
-</div><script>
+  <img src="24.jpg">
+
+  <p style="font-size:1.2em;max-width:650px;">
+    Har guzarta din hume ek dusre ke aur kareeb la raha hai…<br>
+    Inshallah jald hi hum hamesha ke liye ek ho jayenge ❤️
+  </p>
+</div>
+
+<script>
 function unlock(){
-  if(document.getElementById('pass').value === "10feb2001"){
-    document.getElementById('lock').classList.add('hidden');
+  const secret = atob("MTBmZWIyMDAx"); // 10feb2001
+  if(document.getElementById('pass').value === secret){
+    hideAll();
     document.getElementById('main').classList.remove('hidden');
-  } else { alert('Bubu aapne glt password dala hai ❤️'); }
+  } else {
+    alert('Bubu aapne galat password dala hai ❤️');
+  }
 }
+
 function showVideo(){ hideAll(); document.getElementById('video').classList.remove('hidden'); }
 function showLetter(){ hideAll(); document.getElementById('letter').classList.remove('hidden'); }
 function showGallery(){ hideAll(); document.getElementById('gallery').classList.remove('hidden'); }
-function showCountdown(){ hideAll(); document.getElementById('countdown').classList.remove('hidden'); }
-function hideAll(){ document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden')); }
 
-</script></body>
+function hideAll(){
+  document.querySelectorAll('.screen').forEach(e=>e.classList.add('hidden'));
+}
+</script>
+
+</body>
 </html>
